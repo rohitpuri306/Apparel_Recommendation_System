@@ -1,0 +1,143 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Apparel Recommendation System</title>-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1 class="text-center">Apparel Recommendation System</h1>-->
+
+<!--    <form class="p-3 text-center" action="/" method="post" enctype="multipart/form-data">-->
+<!--        <input class="form-control" type="file" name="imagefile">-->
+<!--        <input class="btn btn-primary mt-3" type="submit" value="Predict Image">-->
+<!--    </form>-->
+
+<!--    {% if prediction %}-->
+<!--    <p class='text-center'> Recommendations are:</p>-->
+<!--    <div class="d-flex justify-content-center">-->
+<!--        {% for image_url in prediction %}-->
+<!--            <div class="card mx-2" style="width: 18rem;">-->
+<!--                <img src="{{ image_url }}" class="card-img-top" alt="...">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Recommendation {{ loop.index }}</h5>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    {% endfor %}-->
+<!--</div>-->
+<!--{% endif %}-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Image Recommendation</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Image Recommendation System</h1>-->
+
+<!--    <form method="POST" enctype="multipart/form-data">-->
+<!--        <input type="file" name="imagefile">-->
+<!--        <input type="submit" value="Upload and Recommend">-->
+<!--    </form>-->
+
+<!--    {% if prediction %}-->
+<!--    <h2>Recommended Images:</h2>-->
+<!--    <div>-->
+<!--        {% for url in prediction %}-->
+<!--        <img src="{{ url }}" alt="Recommended Image">-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--    {% endif %}-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apparel Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .content {
+            text-align: center;
+        }
+        .input-bar {
+            padding: 0.5em;
+        }
+        .recommend-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+       .products-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2em;
+            margin-top: 2em;
+            justify-content: center;
+        }
+        .product {
+            border: 1px solid #ccc;
+            margin: 1em;
+            padding: 1em;
+            text-align: center;
+            max-width: 200px;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Apparel Recommendation System</h1>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="input-bar">
+                <form method="POST" enctype="multipart/form-data" action="/">
+                    <input type="file" name="imagefile">
+                    <input type="submit" value="Predict Image" class="recommend-button">
+                </form>
+            </div>
+            <div class="products-container" id="productsContainer">
+                {% if prediction %}
+                    {% for image_url in prediction %}
+                        <div class="card mx-2" style="width: 18rem;">
+                            <img src="{{ image_url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Recommendation {{ loop.index }}</h5>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
