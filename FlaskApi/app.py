@@ -48,18 +48,4 @@ for file_index in indices[0][1:6]:
         print(f"Failed to load image: {filenames[file_index]}")
 
 E_filenames = [filename.replace('images\\', '') for filename in filenames]
-# print("Filenames:", E_filenames)
-# Close all OpenCV windows after displaying
 cv2.destroyAllWindows()
-
-# Save the trained model for later use
-# with open('Apparel_Recommendation_System.pickle', 'wb') as f:
-#     pickle.dump(model, f)
-
-# If you plan to use JSON serialization for model's columns
-# import json
-# columns = {
-#     'data_columns': [col.lower() for col in X.columns]
-# }
-# with open('columns.json', 'w') as f:
-#     json.dump(columns, f)
